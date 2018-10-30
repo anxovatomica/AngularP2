@@ -1,0 +1,37 @@
+<!--
+  Author: Marcel Dufol
+  DAW2
+  2018-19
+-->
+<!doctype html>
+  <html lang="">
+    <head> 
+      <meta charset="UTF-8">
+      
+<style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg .tg-ycr8{background-color:#ffffff;text-align:left;vertical-align:top}
+  </style>
+      <title>Angular P2</title>
+    </head>
+    <body>
+        <h1>{{titulo}}</h1>
+        <table class="tg">
+            <tr>
+              <th class="tg-ycr8" *ngFor='let n of main; let i = index'>{{n}}</th>
+            </tr>
+            <tr *ngFor='let peli of pelis; let k = item'>
+              <td class="tg-ycr8" >{{peli.titulo}}</td>
+              <td class="tg-ycr8" >{{peli.ano}}</td>
+              <td class="tg-ycr8" >{{peli.director}}</td>
+              <td class="tg-ycr8" >{{peli.genero}}</td>
+            </tr>
+          </table>
+          <input type="button" value="ADD" (click)="addMovie()"/>
+          <input type="button" value="DELETE" (click)="delMovie(k)"/>
+    </body>
+  </html>
+  
+  

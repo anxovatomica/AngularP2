@@ -1,0 +1,28 @@
+<h1>
+    {{titulo}}
+</h1>
+<input type="text" [(ngModel)]="titulo"/>
+<br>
+<h3>FORMULARIO NUEVO SUSHI</h3>
+Nombre: <input type="text" [(ngModel)]="sushi.nombre">
+{{sushi.nombre}} <br>
+Tipo: <input type="text"  [(ngModel)]="sushi.tipo">
+{{sushi.tipo}} <br>
+Precio: <input type="text" [(ngModel)]="sushi.precio">
+{{sushi.precio}} <br>
+Vegano: <select type="text" [(ngModel)]="sushi.vegano">
+    <option value="Si">Si</option>
+    <option value="No">No</option>
+</select>
+{{sushi.vegano}} <br>
+<button (click)="addSushi()">ADD SUSHI</button>
+
+<ol>
+    <li *ngFor='let sushi of sushis; let i = index'>
+        Nombre:{{sushi.nombre}} <br>
+        Tipo: {{sushi.tipo}} <br>
+        Precio: {{sushi.precio}} <br>
+        Apto para veganos: {{sushi.vegano}} <br>
+        <button (click)="borraSushi(i)"> Borrar </button>
+    </li>
+</ol>
