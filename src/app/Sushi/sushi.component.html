@@ -26,3 +26,22 @@ Vegano: <select type="text" [(ngModel)]="sushi.vegano">
         <button (click)="borraSushi(i)"> Borrar </button>
     </li>
 </ol>
+<h3>Selecciona els sushis Disponibles</h3>
+Id sushi seleccionat {{sushiSelected}}
+<select [(ngModel)]="sushiSelected">
+    <option value="0" *ngFor='let sushi of sushis; let i = index' value="{{i}}">
+        {{sushi.nombre}}
+    </option>
+</select>
+<h3>Mostra els ingredients de cada sushi, esborra ingredients</h3>
+Nombre: {{sushis[sushiSelected].nombre}} <br>
+Tipo: {{sushis[sushiSelected].tipo}} <br>
+Precio: {{sushis[sushiSelected].precio}} <br>
+ingredients:
+<span *ngFor="let ingredient of sushis[sushiSelected].ingredients; let i = index">
+    {{ingredient}} <button (click)="borraIngredient(i)">Borrar</button>
+</span>
+
+<h3>Afegeix un ingredient</h3>
+Nom ingredient <input type="text" [(ngModel)]="nouIngredient"/>
+<button (click)="addIngredient();">ADD INGREDIENT</button>
