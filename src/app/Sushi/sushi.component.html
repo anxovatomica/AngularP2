@@ -1,12 +1,12 @@
 <h1>
     {{titulo}}
 </h1>
-<input type="text" [(ngModel)]="titulo"/>
+<input type="text" [(ngModel)]="titulo" />
 <br>
 <h3>FORMULARIO NUEVO SUSHI</h3>
 Nombre: <input type="text" [(ngModel)]="sushi.nombre">
 {{sushi.nombre}} <br>
-Tipo: <input type="text"  [(ngModel)]="sushi.tipo">
+Tipo: <input type="text" [(ngModel)]="sushi.tipo">
 {{sushi.tipo}} <br>
 Precio: <input type="text" [(ngModel)]="sushi.precio">
 {{sushi.precio}} <br>
@@ -43,5 +43,5 @@ ingredients:
 </span>
 
 <h3>Afegeix un ingredient</h3>
-Nom ingredient <input type="text" [(ngModel)]="nouIngredient"/>
+Nom ingredient <input type="text" [(ngModel)]="nouIngredient" />
 <button (click)="addIngredient();">ADD INGREDIENT</button>

@@ -10,6 +10,10 @@ import { Component } from "@angular/core"
 export class PelisComponent{
     titulo:string="ANGULAR PRACTICA 2: PELIS";
     main = ["Titulo", "Año", "Director", "Genero"];
+    newTitle= "";
+    newYear = "";
+    newDirector = "";
+    newGenre = "";
     peli={
         titulo: "",
         ano: "",
@@ -29,14 +33,19 @@ export class PelisComponent{
     },{
         titulo: "Spiderman",
         ano: "2016",
-        director: "Willy Greenweed",
+        director: "Willy Greenwid",
         genero: "ACCION"
     }
 ];
+/*
     addMovie(){
         this.pelis.push(JSON.parse(JSON.stringify(this.peli)));
     }
+*/
     delMovie(index){
-        this.pelis.splice(index, 1);
+        this.pelis.splice(this.pelis.length - 1, 1);
+    }
+    addName(index){
+        this.pelis.push({titulo: this.newTitle, ano: this.newYear, director: this.newDirector, genero: this.newGenre});
     }
 }

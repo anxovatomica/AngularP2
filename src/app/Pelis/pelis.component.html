@@ -29,7 +29,13 @@
               <td class="tg-ycr8" >{{peli.genero}}</td>
             </tr>
           </table>
-          <input type="button" value="ADD" (click)="addMovie()"/>
+          <!--<input type="button" value="ADD" (click)="addMovie()"/>-->
+          
+          Titulo: <input type="text" [(ngModel)]="newTitle" /> <br>
+          Año: <input type="text" [(ngModel)]="newYear" /> <br>
+          Director: <input type="text" [(ngModel)]="newDirector" /> <br>
+          Genero: <input type="text" [(ngModel)]="newGenre" /> <br>
+          <button (click)="addName(i)">ADD</button>
           <input type="button" value="DELETE" (click)="delMovie(k)"/>
     </body>
   </html>
