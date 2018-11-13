@@ -18,15 +18,21 @@
     </head>
     <body>
         <h1>{{titulo}}</h1>
+        <!--
+          Exercisi 1 i 2
+        -->
+        <h3>Exercisi 1 i 2</h3>
         <table class="tg">
             <tr>
               <th class="tg-ycr8" *ngFor='let n of main; let i = index'>{{n}}</th>
+              <th>DELETE</th>
             </tr>
-            <tr *ngFor='let peli of pelis; let k = item'>
+            <tr *ngFor='let peli of pelis; let k = index'>
               <td class="tg-ycr8" >{{peli.titulo}}</td>
               <td class="tg-ycr8" >{{peli.ano}}</td>
               <td class="tg-ycr8" >{{peli.director}}</td>
               <td class="tg-ycr8" >{{peli.genero}}</td>
+              <td><input type="button" value="DELETE" (click)="delMovie(k)"/></td>
             </tr>
           </table>
           <!--<input type="button" value="ADD" (click)="addMovie()"/>-->
@@ -35,9 +41,101 @@
           Año: <input type="text" [(ngModel)]="newYear" /> <br>
           Director: <input type="text" [(ngModel)]="newDirector" /> <br>
           Genero: <input type="text" [(ngModel)]="newGenre" /> <br>
-          <button (click)="addName(i)">ADD</button>
-          <input type="button" value="DELETE" (click)="delMovie(k)"/>
-    </body>
+          <button (click)="addMovie()">ADD</button>
+           <br>
+           <!--
+          Exercisi 3 i 4
+        -->
+        <h3>Exercisi 3 i 4</h3>
+        <style type="text/css">
+          .tg  {border-collapse:collapse;border-spacing:0;}
+          .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+          .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+          .tg .tg-baqh{text-align:center;vertical-align:top}
+          .tg .tg-0lax{text-align:left;vertical-align:top}
+          </style>
+          <table class="tg">
+            <tr>
+              <th class="tg-0lax" colspan="2">
+               <b>Nombre Pelicula:</b>
+                <select [(ngModel)]="movieSelected">
+                    <option *ngFor="let peli of pelis; let j = index;" value="{{j}}">
+                        {{peli.titulo}}
+                    </option>
+                </select>
+              </th>
+              <th class="tg-0lax" colspan="2"><b>Director:</b> {{pelis[movieSelected].director}}<br>Año: {{pelis[movieSelected].ano}}</th>
+            </tr>
+            <tr>
+              <td class="tg-baqh" colspan="4" ><b>ACTORES</b></td>
+            </tr>
+            <tr>
+              <td class="tg-0lax" style="background-color: burlywood"><b>Nombre</b></td>
+              <td class="tg-0lax" style="background-color: burlywood"><b>Apellido</b></td>
+              <td class="tg-0lax" style="background-color: burlywood"><b>Nacimiento</b></td>
+              <td class="tg-0lax" style="background-color: burlywood"><b>Nacionalidad</b></td>
+            </tr>
+            <!--
+              <td class="tg-0lax">{{pelis[movieSelected].actores[movieSelected].nombre}}</td>
+              let nom of pelis[movieSelected].actores[movieSelected]; let i = index
+            -->
+            <tr *ngFor="let peli of pelis[movieSelected].actores; let i = index">
+              <td>
+                {{peli.nombre}} <br>
+                <input type="button" value="DELETE" (click)="delActor(i)"/>
+              </td>
+              <td>
+                {{peli.apellido}}
+              </td>
+              <td>
+                {{peli.nacimiento}}
+              </td>
+              <td>
+                {{peli.nacionalidad}}
+              </td>
+            </tr>
+          </table>
+          Nombre: <input type="text" [(ngModel)]="newName" /> <br>
+          Apellido: <input type="text" [(ngModel)]="newSurname" /> <br>
+          Nacimiento: <input type="text" [(ngModel)]="newBirthdate" /> <br>
+          Nacionalidad: <input type="text" [(ngModel)]="newNationality" /> <br>
+          <button (click)="addActor()">ADD</button>
+          <!--
+          Exercisis del 5 al 8
+        -->
+          <h2>Ejercicios del 5 al 8</h2>
+          <b>Contacto:</b><input type="text" placeholder="Contacto" [(ngModel)]="txt1">
+          <b>Email:</b><input type="text" placeholder="Email" [(ngModel)]="txt2">
+          <input type="button" value="Crea Contacto" (click)="addContact()" >
+          <h3><b><u>Contactos Creados</u></b></h3> 
+          <div *ngFor="let contacto of contactos; let i = index">
+             <b>Contacto:</b> {{contacto.contacto}} <b>Email:</b> {{contacto.email}}
+             <input type="button" value="DELETE" (click)="delContact(i)"/>
+          </div>
+          <hr>
+          <b>Producto: </b><input type="text" placeholder="Producto" [(ngModel)]="product">
+          <input type="button" value="ADD" (click)="addProduct()">
+          <hr>
+          <h3><b><u>Asignar contactos</u></b></h3>
+          <b>Nombre Contacto:</b>
+                <select [(ngModel)]="contact">
+                    <option *ngFor="let contacto of contactos; let i = index;" value="{{i}}">
+                        {{contacto.contacto}}
+                    </option>
+                </select>
+          <b>Nombre Producto:</b>
+                <select [(ngModel)]="product2">
+                    <option *ngFor="let product of producto; let i = index;" value="{{i}}">
+                        {{product}}
+                    </option>
+                </select>
+          <input type="button" value="Asignar" (click)="asigna()"> <br>
+          <u>Asignaciones</u>
+          <div *ngFor="let asignar of final; let i = index">
+            {{asignar.finalC}} - {{asignar.finalP}}
+            <input type="button" value="DELETE" (click)="delAsig(i)"/>
+          </div>
+        </body>
   </html>
   
   

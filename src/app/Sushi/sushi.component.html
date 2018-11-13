@@ -29,7 +29,7 @@ Vegano: <select type="text" [(ngModel)]="sushi.vegano">
 <h3>Selecciona els sushis Disponibles</h3>
 Id sushi seleccionat {{sushiSelected}}
 <select [(ngModel)]="sushiSelected">
-    <option value="0" *ngFor='let sushi of sushis; let i = index' value="{{i}}">
+    <option *ngFor='let sushi of sushis; let i = index' value="{{i}}">
         {{sushi.nombre}}
     </option>
 </select>

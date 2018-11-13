@@ -50,7 +50,7 @@ export class SushiComponent {
     }
     borraIngredient(index) {
         console.log("delete");
-        //this.sushis[this.sushiSelected].ingredients.slice(index, 1);
+        //this.sushis[this.sushiSelected].ingredients.splice(index, 1);
         let sushiPerBorrar = this.sushis[this.sushiSelected];
         sushiPerBorrar.ingredients.splice(index,1);
     }
